@@ -34,4 +34,6 @@ deploy:
   on:
     branch: master
 
-
+env:
+  global:
+    - GH_REF: https://github.com/huangxiaochang/ui-components.git
