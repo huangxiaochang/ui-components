@@ -1,0 +1,19 @@
+{
+  "name": "hkust-ui",
+  "version": "0.0.1",
+  "description": "UI component for hkust",
+  "author": "huangxiaochang",
+  "homepage": "https://gitee.com/x_c_huang/hkust-ui.git#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "gitee",
+    "url": "https://gitee.com/x_c_huang/hkust-ui.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/x_c_huang/hkust-ui.git/issues"
+  },
+  "dependencies": {
+    "@hkust-ui/menu": "^0.0.0"
+  }
+}

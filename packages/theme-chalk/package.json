@@ -1,0 +1,36 @@
+{
+  "name": "hkust-theme-chalk",
+  "version": "0.0.0",
+  "description": "khust component chalk theme.",
+  "main": "lib/index.css",
+  "style": "lib/index.css",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/x_c_huang/hkust-ui.git"
+  },
+  "keywords": [
+    "hkust",
+    "theme"
+  ],
+  "author": "hxc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitee.com/x_c_huang/hkust-ui.git/issues"
+  },
+  "homepage": "https://gitee.com/x_c_huang/hkust-ui.git/theme-chalk#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-rename": "^2.0.0"
+  },
+  "dependencies": {}
+}
