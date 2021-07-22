@@ -1,0 +1,37 @@
+language: node_js
+
+install:
+  - yarn bootstrap
+
+cache:
+  directories:
+    - node_modules
+
+git:
+  depth: 1
+
+node_js:
+  - "12.21.0"
+
+branches:
+  only:
+    - master
+
+script:
+  - yarn lint
+  - yarn test    
+  - yarn build
+  - yarn website-build
+
+# deploy to github page 
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $ui_component_token
+  local-dir: website-dist
+  target-branch: website-pages
+  verbose: true
+  on:
+    branch: master
+
+
