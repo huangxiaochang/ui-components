@@ -4,6 +4,9 @@ yarn genComp component-name
 ```
 
 # husky
+```
+yarn husky install
+```
 
 ## create a hook
 ```yarn husky add .husky/pre-commit "yarn lint-staged"
