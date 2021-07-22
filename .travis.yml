@@ -22,7 +22,7 @@ script:
   - yarn lint
   - yarn test    
   - yarn build
-  - yarn website-build
+  - yarn website-github-page
 
 # deploy to github page 
 deploy:
@@ -38,3 +38,4 @@ deploy:
 env:
   global:
     - GH_REF: https://github.com/huangxiaochang/ui-components.git
+    # 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

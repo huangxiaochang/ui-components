@@ -8,6 +8,9 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 const isPlay = !!process.env.PLAY_ENV
+const isGithubPage = !!process.env.GITHUB_PAGE
+
+console.log(isGithubPage, 2222222)
 
 const config = {
   mode: isProd ? 'production' : 'development',
@@ -17,7 +20,7 @@ const config = {
     : path.resolve(__dirname, './entry.js'),
   output: {
     path: path.resolve(__dirname, '../website-dist'),
-    publicPath: '/',
+    publicPath: isGithubPage ? './' : '/',
     filename: isProd ? '[name].[hash].js' : '[name].js',
   },
   module: {
