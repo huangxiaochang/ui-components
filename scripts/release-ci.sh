@@ -12,8 +12,10 @@ if [ "$ui_component_token" = "" ]; then
 fi
 
 # release
+echo "start release to github"
+
 cd release_dir
-git clone https://$ui_component_token@${GH_REF}/release.git && cd release
+git clone https://$ui_component_token@${GH_REF}/tree/release.git && cd release
 rm -rf `find * ! -name README.md`
 # copy the build
 cp -rf ../../** .
@@ -43,4 +45,5 @@ cd ../..
 # git commit -m "chore(deploy)"
 # git push origin es
 # cd ../..
-# echo "release to giyhub done!"
+
+echo "release to github done!"
