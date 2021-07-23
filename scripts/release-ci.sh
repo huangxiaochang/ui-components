@@ -19,7 +19,7 @@ git clone "https://$ui_component_token@${GH_REF}" && cd ui-components
 rm -rf `find * ! -name README.md`
 # copy the build
 cp -rf ../../lib .
-cp -rf ../../package .
+cp -rf ../../packages .
 cp -rf ../../package.json .
 git add .
 git commit -m "chore(deploy)"
