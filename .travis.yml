@@ -1,5 +1,9 @@
 language: node_js
 
+env:
+  global:
+    - GH_REF: https://github.com/huangxiaochang/ui-components.git
+
 install:
   - yarn bootstrap
 
@@ -24,6 +28,11 @@ script:
   - yarn build
   - yarn website-github-page
 
+# release to github
+after_script:
+  - sh scripts/release-ci.sh
+  
+
 # deploy to github page 
 deploy:
   provider: pages
@@ -35,6 +44,12 @@ deploy:
   on:
     branch: master
 
-env:
-  global:
-    - GH_REF: https://github.com/huangxiaochang/ui-components.git
+# deploy to npm
+# deploy:
+#   provider: npm
+#   email: $NPM_EMAIL
+#   api_key: $NPM_ACCESS_TOKEN
+#   on:
+#     branch: master
+#     tags: ture
+
