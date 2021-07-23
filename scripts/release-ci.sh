@@ -15,7 +15,8 @@ fi
 echo "start release to github"
 
 cd release_dir
-git clone "https://$ui_component_token@${GH_REF}/tree/release.git" && cd release
+git clone "https://$ui_component_token@${GH_REF}" && cd hkust-ui
+
 rm -rf `find * ! -name README.md`
 # copy the build
 cp -rf ../../** .

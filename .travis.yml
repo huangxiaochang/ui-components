@@ -2,7 +2,7 @@ language: node_js
 
 env:
   global:
-    - GH_REF: https://github.com/huangxiaochang/ui-components.git
+    - GH_REF: github.com/huangxiaochang/ui-components.git
 
 install:
   - yarn bootstrap
