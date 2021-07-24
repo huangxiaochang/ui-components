@@ -32,31 +32,30 @@ script:
 # after_script:
 #   - sh scripts/release-ci.sh
 
-# release to github
 deploy:
-  provider: releases
-  toekn: $ui_component_token
-  file:
-    - "lib"
-    - "es"
-    - "packages"
-    - "package.json"
-    - "README.md"
-  skip_cleanup: true
-  on:
-    tags: ture
-
-# deploy to github page 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $ui_component_token
-  local-dir: website-dist
-  target-branch: website-pages
-  verbose: true
-  on:
-    tag: true
-    branch: master
+  # release to github
+  - provider: releases
+    toekn: $ui_component_token
+    file:
+      - "lib"
+      - "es"
+      - "packages"
+      - "package.json"
+      - "README.md"
+    skip_cleanup: true
+    on:
+      tags: ture
+  # deploy to github page 
+  - deploy:
+    provider: pages
+    skip-cleanup: true
+    github-token: $ui_component_token
+    local-dir: website-dist
+    target-branch: website-pages
+    verbose: true
+    on:
+      tag: true
+      branch: master
 
 # deploy to npm
 # deploy:
