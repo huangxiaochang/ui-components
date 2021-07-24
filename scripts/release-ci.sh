@@ -30,7 +30,7 @@ cp -rf ../../README.md .
 git add .
 git commit -m "chore(deploy)"
 git tag $TRAVIS_TAG
-git push
+git push --tags
 cd ../..
 
 # # release lib build
