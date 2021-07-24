@@ -29,8 +29,8 @@ script:
   - yarn website-github-page
 
 # release to github
-# after_script:
-#   - sh scripts/release-ci.sh
+after_script:
+  - sh scripts/release-ci.sh
 
 deploy:
   # release to github
@@ -43,18 +43,19 @@ deploy:
       - "package.json"
       - "README.md"
     skip_cleanup: true
+    overwrite: true
     on:
       tags: ture
   # deploy to github page 
-  # - provider: pages
-  #   skip-cleanup: true
-  #   github-token: $ui_component_token
-  #   local-dir: website-dist
-  #   target-branch: website-pages
-  #   verbose: true
-  #   on:
-  #     tags: true
-  #     branch: master
+  - provider: pages
+    skip-cleanup: true
+    github-token: $ui_component_token
+    local-dir: website-dist
+    target-branch: website-pages
+    verbose: true
+    on:
+      tags: true
+      branch: master
 
 # deploy to npm
 #  - provider: npm
