@@ -46,20 +46,18 @@ deploy:
     on:
       tags: ture
   # deploy to github page 
-  - deploy:
-    provider: pages
-    skip-cleanup: true
-    github-token: $ui_component_token
-    local-dir: website-dist
-    target-branch: website-pages
-    verbose: true
-    on:
-      tag: true
-      branch: master
+  # - provider: pages
+  #   skip-cleanup: true
+  #   github-token: $ui_component_token
+  #   local-dir: website-dist
+  #   target-branch: website-pages
+  #   verbose: true
+  #   on:
+  #     tags: true
+  #     branch: master
 
 # deploy to npm
-# deploy:
-#   provider: npm
+#  - provider: npm
 #   email: $NPM_EMAIL
 #   api_key: $NPM_ACCESS_TOKEN
 #   on:
