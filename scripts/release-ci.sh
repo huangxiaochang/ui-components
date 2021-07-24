@@ -1,4 +1,6 @@
-#! /bin/sh
+#! /usr/bin/sh
+
+echo "hello word"
 
 # used to release
 mkdir release_dir
@@ -16,12 +18,23 @@ echo "start release to github"
 
 cd release_dir
 git clone "https://$ui_component_token@${GH_REF}" && cd ui-components
-rm -rf `find * ! -name README.md`
+rm -rf *
 # copy the build
 cp -rf ../../lib/ .
 cp -rf ../../packages/ .
 cp -rf ../../package.json .
+cp -rf ../../README.md .
+
+work_path=$(dirname $0)
+echo $work_path
+
+dir=$(ls -l ./ |awk '/^d/ {print $NF}')
+for i in $dir
+do
+    echo "Directory:"$i
+done
 git add .
+git status
 git commit -m "chore(deploy)"
 git push origin release
 cd ../..
