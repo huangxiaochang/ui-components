@@ -18,6 +18,8 @@ echo "start release to github"
 
 cd release_dir
 git clone "https://$ui_component_token@${GH_REF}" && cd ui-components
+git branch
+git checkout release
 rm -rf *
 # copy the build
 cp -rf ../../lib/ .
@@ -34,8 +36,8 @@ do
     echo "Directory:"$i
 done
 git add .
-git status
 git commit -m "chore(deploy)"
+git status
 git push origin release
 cd ../..
 
