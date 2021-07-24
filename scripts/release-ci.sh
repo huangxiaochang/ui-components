@@ -20,6 +20,7 @@ cd release_dir
 git clone "https://$ui_component_token@${GH_REF}" && cd ui-components
 git branch
 git checkout release
+git pull
 rm -rf *
 # copy the build
 cp -rf ../../lib/ .
@@ -27,10 +28,21 @@ cp -rf ../../es/ .
 cp -rf ../../packages/ .
 cp -rf ../../package.json .
 cp -rf ../../README.md .
+git status
+dir=$(ls -l ./ |awk '!/^d/ {print $NF}')
+for i in $dir
+do
+    echo "File:"$i
+done
+
+dir=$(ls -l ./ |awk '/^d/ {print $NF}')
+for i in $dir
+do
+    echo "Directory:"$i
+done
 git add .
 git commit -m "chore(deploy)"
-git tag $TRAVIS_TAG
-git push --tags
+git push
 cd ../..
 
 # # release lib build
