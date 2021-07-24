@@ -23,22 +23,14 @@ git checkout release
 rm -rf *
 # copy the build
 cp -rf ../../lib/ .
+cp -rf ../../es/ .
 cp -rf ../../packages/ .
 cp -rf ../../package.json .
 cp -rf ../../README.md .
-
-work_path=$(dirname $0)
-echo $work_path
-
-dir=$(ls -l ./ |awk '/^d/ {print $NF}')
-for i in $dir
-do
-    echo "Directory:"$i
-done
 git add .
 git commit -m "chore(deploy)"
-git status
-git push origin release
+git tag $TRAVIS_TAG
+git push
 cd ../..
 
 # # release lib build
