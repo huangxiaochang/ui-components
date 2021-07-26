@@ -20,8 +20,10 @@ cd release_dir
 git clone "https://$ui_component_token@${GH_REF}" && cd ui-components
 git branch
 git checkout release
-git pull
 rm -rf *
+git ls-files
+echo "pre files"
+git status
 # copy the build
 cp -rf ../../lib/ .
 cp -rf ../../es/ .
@@ -40,6 +42,8 @@ for i in $dir
 do
     echo "Directory:"$i
 done
+git ls-files
+echo "current files"
 git add .
 git commit -m "chore(deploy)"
 git push

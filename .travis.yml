@@ -37,8 +37,12 @@ deploy:
   - provider: releases
     toekn: $ui_component_token
     file:
-      - "lib"
-      - "es"
+      - "lib/*.ts"
+      - "lib/*.js"
+      - "lib/*.json"
+      - "es/*.js"
+      - "es/*.ts"
+      - "es/*.json"
       - "packages"
       - "package.json"
       - "README.md"
