@@ -2,27 +2,24 @@
 import { defineComponent, h, computed, watch, onMounted } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 
-// import { ElScrollbar } from 'element-plus'
-// import { ElMessageBox } from 'element-plus'
-
 import MainHeader from './components/header'
 import MainFooter from './components/footer'
-// import { use } from '@element-plus/locale'
-// import zhLocale from '@element-plus/locale/lang/zh-cn'
-// import enLocale from '@element-plus/locale/lang/en'
+import { use } from '@hkust-ui/locale'
+import zhLocale from '@hkust-ui/locale/lang/zh-cn'
+import enLocale from '@hkust-ui/locale/lang/en'
 import { Language } from './enums/language'
 
 const lang = location.hash.replace('#', '').split('/')[1] || Language.CN
-// const localize = lang => {
-//   switch (lang) {
-//     case Language.CN:
-//       use(zhLocale)
-//       break
-//     default:
-//       use(enLocale)
-//   }
-// }
-// localize(lang)
+const localize = lang => {
+  switch (lang) {
+    case Language.CN:
+      use(zhLocale)
+      break
+    default:
+      use(enLocale)
+  }
+}
+localize(lang)
 
 export default defineComponent({
   name: 'App',
@@ -34,13 +31,13 @@ export default defineComponent({
 
     const isComponent = computed(() => /^component-/.test(route.name || ''))
 
-    // watch(() => lang.value, val => {
-    //   localize(val)
-    // })
+    watch(() => lang.value, val => {
+      localize(val)
+    })
 
-    // onMounted(() => {
-    //   localize(lang.value)
-    // })
+    onMounted(() => {
+      localize(lang.value)
+    })
 
     return {
       lang,
@@ -62,10 +59,6 @@ export default defineComponent({
     const content = [h('div', {
       class: 'main-cnt',
     }, [h(RouterView)]), mainFooter]
-
-    // const contentWrapper = notComponent
-    //   ? h(ElScrollbar, null, { default: () => content })
-    //   : content
 
     const contentWrapper = notComponent
       ? h('div', null, { default: () => content })

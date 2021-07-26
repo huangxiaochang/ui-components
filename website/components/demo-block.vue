@@ -29,6 +29,13 @@
         <span v-show="hovering">{{ controlText }}</span>
       </transition>
       <div class="control-button-container control-button-container-left">
+        <div
+          v-show="isExpanded && hasSetup"
+          class="control-button"
+          @click.stop="onSwitchSyntax"
+        >
+          {{ showSetup ? langConfig['switch-button-option-text'] : langConfig['switch-button-setup-text'] }}
+        </div>
         <!-- <el-button
           v-show="isExpanded && hasSetup"
           size="small"
@@ -40,6 +47,14 @@
         </el-button> -->
       </div>
       <div class="control-button-container">
+        <div
+          v-show="isExpanded"
+          ref="copyButton"
+          class="control-button copy-button"
+          @click.stop="copy"
+        >
+          {{ langConfig['copy-button-text'] }}
+        </div>
         <!-- <el-button
           v-show="isExpanded"
           ref="copyButton"
@@ -73,7 +88,7 @@ import hljs from 'highlight.js'
 import clipboardCopy from 'clipboard-copy'
 import compoLang from '../i18n/component.json'
 import { stripScript, stripStyle, stripTemplate, stripSetup, removeSetup } from '../util'
-const version = '1.0.0' // element version
+
 const stripTemplateAndRemoveTemplate = code => {
   const result = removeSetup(stripTemplate(code))
   if (result.indexOf('<template>') === 0) {

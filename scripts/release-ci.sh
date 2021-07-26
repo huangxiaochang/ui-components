@@ -20,16 +20,16 @@ cd release_dir
 git clone "https://$ui_component_token@${GH_REF}" && cd ui-components
 git branch
 git checkout release
-rm -rf *
+rm -rf ui-components/
 git ls-files
 echo "pre files"
 git status
 # copy the build
-cp -rf ../../lib/ .
-cp -rf ../../es/ .
-cp -rf ../../packages/ .
-cp -rf ../../package.json .
-cp -rf ../../README.md .
+cp -rf ../../lib/ ../../release_dir/ui-components
+cp -rf ../../es/ ../../release_dir/ui-components
+cp -rf ../../packages/ ../../release_dir/ui-components
+cp -rf ../../package.json ../../release_dir/ui-components
+cp -rf ../../README.md ../../release_dir/ui-components
 git status
 dir=$(ls -l ./ |awk '!/^d/ {print $NF}')
 for i in $dir

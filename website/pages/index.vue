@@ -4,6 +4,7 @@
       <h1>{{ langConfig[1] }}</h1>
       <p>{{ langConfig[2] }}</p>
     </div>
+    <img class="theme-index-img" src="~examples/assets/images/theme-index-blue.png" alt="">
   </div>
 </template>
 
@@ -22,16 +23,15 @@ export default defineComponent({
       return pageLang.filter(config => config.lang === this.lang)[0].pages.index
     },
   },
-  setup() {
-    
-  },
 })
 </script>
 
 <style lang="scss" scoped>
   .banner {
   text-align: center;
-  margin-bottom: 300px;
+}
+.theme-index-img {
+  width: 60%;
 }
 .banner-desc {
   padding-top: 30px;

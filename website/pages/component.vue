@@ -6,49 +6,16 @@
       </div>
       <div class="page-component__content">
         <div class="content-wrap">
-          <!-- <hkust-menu></hkust-menu> -->
           <router-view class="content" />
         </div>
         <footer-nav />
       </div>
-      <div 
-      v-if="showBackToTop"
-        target=".page-component__scroll .el-scrollbar__wrap"
-        :right="100"
-        :bottom="50"
-      ></div>
-      <!-- <el-backtop
-        v-if="showBackToTop"
-        target=".page-component__scroll .el-scrollbar__wrap"
-        :right="100"
-        :bottom="50"
-      /> -->
     </div>
   </div>
-  <!-- <el-scrollbar ref="componentScrollBar" class="page-component__scroll">
-    <div class="page-container page-component">
-      <el-scrollbar class="page-component__nav">
-        <side-nav :data="navsData[lang]" :base="`/${ lang }/component`" />
-      </el-scrollbar>
-      <div class="page-component__content">
-        <div class="content-wrap">
-          <router-view class="content" />
-        </div>
-        <footer-nav />
-      </div>
-      <el-backtop
-        v-if="showBackToTop"
-        target=".page-component__scroll .el-scrollbar__wrap"
-        :right="100"
-        :bottom="50"
-      />
-    </div>
-  </el-scrollbar> -->
 </template>
 <script>
-import bus from '../bus'
+
 import navsData from '../nav.config.json'
-import { throttle } from 'throttle-debounce'
 
 export default {
   data() {
@@ -58,7 +25,6 @@ export default {
       scrollTop: 0,
       showHeader: true,
       componentScrollBar: null,
-      componentScrollBoxElement: null,
     }
   },
   computed: {
@@ -68,23 +34,11 @@ export default {
   },
   watch: {
     '$route.path'() {
-      // 触发伪滚动条更新
-      // this.componentScrollBox.scrollTop = 0
-      // this.$nextTick(() => {
-      //   this.componentScrollBar.update()
-      // })
+      this.componentScrollBox.scrollTop = 0
     },
   },
-  created() {
-    bus.$on('nav-fade', val => {
-      this.navFaded = val
-    })
-  },
   mounted() {
-    // this.componentScrollBar = this.$refs.componentScrollBar
-    // this.componentScrollBox = this.componentScrollBar.querySelector('.el-scrollbar__wrap')
-    this.throttledScrollHandler = throttle(300, this.handleScroll)
-    // this.componentScrollBox.addEventListener('scroll', this.throttledScrollHandler)
+    this.componentScrollBar = this.$refs.componentScrollBar
     document.body.classList.add('is-component')
     this.addContentObserver()
   },
@@ -92,7 +46,6 @@ export default {
     document.body.classList.remove('is-component')
   },
   beforeUnmount() {
-    // this.componentScrollBox.removeEventListener('scroll', this.throttledScrollHandler)
     this.observer.disconnect()
   },
   methods: {
@@ -131,23 +84,9 @@ export default {
         if (!elm) return
 
         setTimeout(() => {
-          // this.componentScrollBox.scrollTop = elm.offsetTop
+          this.componentScrollBox.scrollTop = elm.offsetTop
         }, 50)
       }
-    },
-
-    handleScroll() {
-      // const scrollTop = this.componentScrollBox.scrollTop
-      // if (this.showHeader !== this.scrollTop > scrollTop) {
-      //   this.showHeader = this.scrollTop > scrollTop
-      // }
-      // if (scrollTop === 0) {
-      //   this.showHeader = true
-      // }
-      // if (!this.navFaded) {
-      //   bus.$emit('fade-nav')
-      // }
-      // this.scrollTop = scrollTop
     },
   },
 }
@@ -155,7 +94,7 @@ export default {
 <style lang="scss" scoped>
 .page-component__scroll {
   height: 100%;
-
+  overflow: auto;
   ::v-deep( > .el-scrollbar__wrap) {
     overflow-x: auto;
   }

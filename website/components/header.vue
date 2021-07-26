@@ -4,7 +4,6 @@
       <div class="container">
         <h1>
           <router-link :to="`/${ lang }`">
-            <!-- logo -->
             <slot>
               <img
                 src="../assets/images/UST-GZ.svg"
@@ -17,9 +16,6 @@
 
         <!-- nav -->
         <ul class="nav">
-          <li v-show="isComponentPage" class="nav-item nav-algolia-search">
-            <!-- <algolia-search /> -->
-          </li>
           <li class="nav-item">
             <router-link
               active-class="active"
@@ -32,33 +28,6 @@
           <!-- gap -->
           <li v-show="isComponentPage" class="nav-item">
             <div class="nav-gap"></div>
-          </li>
-
-          <!-- 版本选择器 -->
-          <li v-if="false" v-show="isComponentPage" class="nav-item nav-versions">
-            {{ version }}
-            <!-- <el-dropdown
-              trigger="click"
-              class="nav-dropdown"
-              :class="{ 'is-active': verDropdownVisible }"
-            >
-              <span>
-                {{ version }}
-                <i class="el-icon-arrow-down el-icon--right"></i>
-              </span>
-              <el-dropdown-menu
-                class="nav-dropdown-list"
-                @input="handleVerDropdownToggle"
-              >
-                <el-dropdown-item
-                  v-for="item in Object.keys(versions)"
-                  :key="item"
-                  @click="switchVersion(item)"
-                >
-                  {{ item }}
-                </el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown> -->
           </li>
 
           <!-- 语言选择器 -->
@@ -95,7 +64,7 @@
   </div>
 </template>
 <script>
-// import AlgoliaSearch from './search.vue'
+
 import { Language } from '../enums/language'
 import compoLang from '../i18n/component.json'
 
