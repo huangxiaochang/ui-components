@@ -1,6 +1,6 @@
 <template>
   <div class="hkust-menu">
-    hello menu
+    hello menu component
     <slot></slot>
   </div>
 </template>
