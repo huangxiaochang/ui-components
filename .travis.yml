@@ -40,12 +40,25 @@ deploy:
       - "lib/*.ts"
       - "lib/*.js"
       - "lib/*.json"
+      - "lib/*/*.ts"
+      - "lib/*/*.js"
+      - "lib/*/*.json"
+      - "lib/*/*/*.ts"
+      - "lib/*/*/*.js"
+      - "lib/*/*/*.json"
       - "es/*.js"
       - "es/*.ts"
       - "es/*.json"
+      - "es/*/*.js"
+      - "es/*/*.ts"
+      - "es/*/*.json"
+      - "es/*/*/*.js"
+      - "es/*/*/*.ts"
+      - "es/*/*/*.json"
       - "packages"
       - "package.json"
       - "README.md"
+    file_glob: true
     skip_cleanup: true
     overwrite: true
     on:
