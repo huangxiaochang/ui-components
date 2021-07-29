@@ -10,6 +10,6 @@ describe('Menu.vue', () => {
         default: AXIOM,
       },
     })
-    expect(wrapper.text()).toEqual('hello menu component ' + AXIOM)
+    expect(wrapper.text()).toEqual(AXIOM)
   })
 })
