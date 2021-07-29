@@ -34,7 +34,7 @@ export default {
   },
   watch: {
     '$route.path'() {
-      this.componentScrollBox.scrollTop = 0
+      this.componentScrollBar.scrollTop = 0
     },
   },
   mounted() {
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     addContentObserver() {
-      this.observer = new MutationObserver((mutationsList, observer) => {
+      this.observer = new MutationObserver((mutationsList, _) => {
         for(const mutation of mutationsList) {
           if (mutation.type === 'childList') {
             this.renderAnchorHref()
@@ -84,7 +84,7 @@ export default {
         if (!elm) return
 
         setTimeout(() => {
-          this.componentScrollBox.scrollTop = elm.offsetTop
+          this.componentScrollBar.scrollTop = elm.offsetTop
         }, 50)
       }
     },

@@ -1,0 +1,32 @@
+/* 
+  color
+ */
+$color-black   : #000000 !default;
+$color-primary : #409EFF !default;
+$color-white   : #FFFFFF !default;
+$color-text-secondary: #909399 !default;
+$color-text-primary: #303133 !default;
+$color-primary-light-9: mix($color-white, $color-primary, 90%) !default; /* ecf5ff */
+/* 
+  font
+ */
+$font-size-base: 14px !default;
+$font-path: 'fonts' !default;
+$font-display: 'auto' !default;
+
+/* 
+  button
+ */
+
+$--button-hover-tint-percent: 20% !default;
+$--button-active-shade-percent: 10% !default;
+
+/* menu */
+$menu-background-color: $color-white !default;
+$menu-item-font-size: $font-size-base !default;
+$menu-item-font-color: $color-text-primary !default;
+$menu-item-hover-fill: $color-primary-light-9 !default;
+
+/* border */
+$border-radius-small: 2px !default;
+$box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;

@@ -1,0 +1,48 @@
+@import './common/var.scss';
+
+@font-face {
+  font-family: "hkust-icons"; /* Project id 2708996 */
+  src: url('#{$font-path}/iconfont.woff2?t=1627546680988') format('woff2'),
+       url('#{$font-path}/iconfont.woff?t=1627546680988') format('woff'),
+       url('#{$font-path}/iconfont.ttf?t=1627546680988') format('truetype');
+  font-weight: normal;
+  font-display: $font-display;
+  font-style: normal;
+}
+
+[class^="#{$namespace}-icon-"], [class*=" #{$namespace}-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hkust-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.#{$namespace}-icon-youxiangdizhi:before {
+  content: "\e67e";
+}
+
+.#{$namespace}-icon-arrow-left-bold:before {
+  content: "\e685";
+}
+
+.#{$namespace}-icon-arrow-up-bold:before {
+  content: "\e686";
+}
+
+.#{$namespace}-icon-arrow-down-bold:before {
+  content: "\e687";
+}
+
+.#{$namespace}-icon-arrow-right-bold:before {
+  content: "\e688";
+}

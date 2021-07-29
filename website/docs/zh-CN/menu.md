@@ -9,7 +9,75 @@
 :::demo 导航菜单默认为垂直模式，通过`mode`属性可以使导航菜单变更为水平模式。另外，在菜单中通过`submenu`组件可以生成二级菜单。Menu 还提供了`background-color`、`text-color`和`active-text-color`，分别用于设置菜单的背景色、菜单的文字颜色和当前激活菜单的文字颜色。
 
 ```html
-<hkust-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"></hkust-menu>
+<hkust-menu 
+default-active="1" 
+class="el-menu-demo" 
+text-color="#996600"
+active-text-color="#409EFF"
+mode="horizontal" 
+@select="handleSelect">
+  <hkust-menu-item v-for="item in 3" :key="item" :index="`${item}`">{{ item }}</hkust-menu-item>
+  <hkust-submenu index="submenu-1">
+    <template #title>
+      <span>子菜单</span>
+    </template>
+    <hkust-menu-item v-for="item in 3" :key="`sub_${item}`" :index="`sub_${item}`">sub_{{ item }}</hkust-menu-item>
+    <hkust-submenu index="submenu-2">
+      <template #title>
+        <span>子子菜单</span>
+      </template>
+      <hkust-menu-item>werwe</hkust-menu-item>
+    </hkust-submenu>
+  </hkust-submenu>
+</hkust-menu>
+<div class="line"></div>
+
+<script>
+  export default {
+    data() {
+      return {
+        activeIndex: '1',
+        activeIndex2: '1'
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath, '222222222');
+      }
+    }
+  }
+</script>
+```
+:::
+
+### 垂直菜单
+
+垂直菜单，可内嵌子菜单。
+
+:::demo mode="vertical" 
+
+```html
+<hkust-menu 
+default-active="1" 
+class="el-menu-demo" 
+text-color="#960"
+active-text-color="#409EFF"
+mode="vertical" 
+@select="handleSelect">
+  <hkust-menu-item v-for="item in 3" :key="item" :index="`${item}`">{{ item }}</hkust-menu-item>
+  <hkust-submenu index="submenu-1">
+    <template #title>
+      <span>子菜单</span>
+    </template>
+    <hkust-menu-item v-for="item in 3" :key="`sub_${item}`" :index="`sub_${item}`">sub_{{ item }}</hkust-menu-item>
+    <hkust-submenu index="submenu-2">
+      <template #title>
+        <span>子子菜单</span>
+      </template>
+      <hkust-menu-item>werwe</hkust-menu-item>
+    </hkust-submenu>
+  </hkust-submenu>
+</hkust-menu>
 <div class="line"></div>
 
 <script>

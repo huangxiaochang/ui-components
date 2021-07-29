@@ -1,4 +1,5 @@
 // gen a component template
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const path = require('path')
 
@@ -46,7 +47,7 @@ if (dirExists(dirName)) {
 }
 
 let NAME = compName.replace(/(^[a-z])|(-[a-z])/g, function(ch) {
-  return ch.length > 1 ? ch[1].toUpperCase() : ch.toUpperCase() 
+  return ch.length > 1 ? ch[1].toUpperCase() : ch.toUpperCase()
 })
 
 const testDir = path.join(dirName, '__test__')
@@ -68,7 +69,7 @@ ${NAME}.install = (app: App): void => {
 
 const _${NAME}: SFCWithInstall<typeof ${NAME}> = ${NAME}
 
-export default ${NAME}`
+export default _${NAME}`
 
 if (fileExists(entryPath)) {
   throw 'file index.ts already exists'

@@ -11,5 +11,6 @@ storybook-static
 coverage/
 website-dist
 lib
+es
 website/play/index.vue
 packages/hkust-ui/version.ts
