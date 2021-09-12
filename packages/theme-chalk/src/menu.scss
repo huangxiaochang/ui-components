@@ -208,3 +208,12 @@
   }
 }
 
+.horizontal-collapse-transition .#{$namespace}-submenu__title .#{$namespace}-submenu__icon-arrow {
+  transition: 0.2s;
+  opacity: 0;
+}
+
+.#{$namespace}-opacity-transition {
+  transition: opacity .3s cubic-bezier(.55,0,.1,1);
+}
+

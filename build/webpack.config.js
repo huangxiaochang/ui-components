@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
-const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 
-// 构建的组件的lib
+// 构建的组件的lib(全量引入的UMD包)
 
 const libMode = process.env.LIBMODE
 const isFullMode = libMode === 'full'
@@ -17,7 +16,7 @@ let externals = [
   },
 ]
 const plugins = [
-  new VueLoaderPlugin()
+  new VueLoaderPlugin(),
 ]
 
 const entry = path.resolve(__dirname, '../packages/hkust-ui/index.ts')

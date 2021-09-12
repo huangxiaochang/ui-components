@@ -16,19 +16,25 @@ text-color="#996600"
 active-text-color="#409EFF"
 mode="horizontal" 
 @select="handleSelect">
-  <hkust-menu-item v-for="item in 3" :key="item" :index="`${item}`">{{ item }}</hkust-menu-item>
+  <hkust-menu-item index="about">About us</hkust-menu-item>
+  <hkust-menu-item index="contact">Contact us</hkust-menu-item>
   <hkust-submenu index="submenu-1">
     <template #title>
-      <span>子菜单</span>
+      <span>Academics</span>
     </template>
-    <hkust-menu-item v-for="item in 3" :key="`sub_${item}`" :index="`sub_${item}`">sub_{{ item }}</hkust-menu-item>
+    <hkust-menu-item index="overview">Overview</hkust-menu-item>
+    <hkust-menu-item index="overview">Pedagogy</hkust-menu-item>
     <hkust-submenu index="submenu-2">
       <template #title>
-        <span>子子菜单</span>
+        <span>Hubs and Thrust Areas</span>
       </template>
-      <hkust-menu-item>werwe</hkust-menu-item>
+      <hkust-menu-item>FUNCTION HUB</hkust-menu-item>
+      <hkust-menu-item>INFORMATION HUB</hkust-menu-item>
+      <hkust-menu-item>SYSTEMS HUB</hkust-menu-item>
+      <hkust-menu-item>SOCIETY HUB</hkust-menu-item>
     </hkust-submenu>
   </hkust-submenu>
+  <hkust-menu-item index="contact">News</hkust-menu-item>
 </hkust-menu>
 <div class="line"></div>
 
@@ -62,21 +68,28 @@ default-active="1"
 class="el-menu-demo" 
 text-color="#960"
 active-text-color="#409EFF"
+:default-openeds="['submenu-1']"
 mode="vertical" 
 @select="handleSelect">
-  <hkust-menu-item v-for="item in 3" :key="item" :index="`${item}`">{{ item }}</hkust-menu-item>
+  <hkust-menu-item index="about">About us</hkust-menu-item>
+  <hkust-menu-item index="contact">Contact us</hkust-menu-item>
   <hkust-submenu index="submenu-1">
     <template #title>
-      <span>子菜单</span>
+      <span>Academics</span>
     </template>
-    <hkust-menu-item v-for="item in 3" :key="`sub_${item}`" :index="`sub_${item}`">sub_{{ item }}</hkust-menu-item>
+    <hkust-menu-item index="overview">Overview</hkust-menu-item>
+    <hkust-menu-item index="overview">Pedagogy</hkust-menu-item>
     <hkust-submenu index="submenu-2">
       <template #title>
-        <span>子子菜单</span>
+        <span>Hubs and Thrust Areas</span>
       </template>
-      <hkust-menu-item>werwe</hkust-menu-item>
+      <hkust-menu-item>FUNCTION HUB</hkust-menu-item>
+      <hkust-menu-item>INFORMATION HUB</hkust-menu-item>
+      <hkust-menu-item>SYSTEMS HUB</hkust-menu-item>
+      <hkust-menu-item>SOCIETY HUB</hkust-menu-item>
     </hkust-submenu>
   </hkust-submenu>
+  <hkust-menu-item index="contact">News</hkust-menu-item>
 </hkust-menu>
 <div class="line"></div>
 

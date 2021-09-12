@@ -10,8 +10,6 @@ const isProd = process.env.NODE_ENV === 'production'
 const isPlay = !!process.env.PLAY_ENV
 const isGithubPage = !!process.env.GITHUB_PAGE
 
-console.log(isGithubPage, 2222222)
-
 const config = {
   mode: isProd ? 'production' : 'development',
   devtool: !isProd && 'cheap-module-eval-source-map',

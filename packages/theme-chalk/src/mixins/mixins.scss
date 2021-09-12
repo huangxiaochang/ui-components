@@ -55,3 +55,17 @@
     }
   }
 }
+
+/*
+css hacks Mixins
+*/ 
+// css only used in Firefox
+@mixin only_ff($selector, $map){
+	@-moz-document url-prefix() {
+		#{$selector} {
+			@each $property, $value in ($map) {
+				#{$property}: $value;
+			}
+		}
+	}
+}

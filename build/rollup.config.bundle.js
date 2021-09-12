@@ -9,7 +9,7 @@ const deps = Object.keys(pkg.dependencies)
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const vue = require('rollup-plugin-vue')
 
-// 构建组件库的esm 的 bundle
+// 构建组件库的esm 的 bundle（全量引入的esm包）， 并输出.d.ts类型声明文件
 
 export default [
   {

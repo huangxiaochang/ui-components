@@ -62,6 +62,7 @@ function createDocumentHandler(
           popperRef.contains(mouseDownTarget)
       )
     )
+    // 判断鼠标是否在目标范围内
     if (
       isBound ||
       isTargetExists ||
@@ -72,6 +73,7 @@ function createDocumentHandler(
     ) {
       return
     }
+    // 如果鼠标不在目标范围内，则执行binding function(such as hide the popper, etc.)
     binding.value(mouseup, mousedown)
   }
 }

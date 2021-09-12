@@ -3,25 +3,24 @@ module.exports = {
     [
       '@babel/env',
       {
-        loose: true,
-        modules: false
-      }
+        modules: false,
+      },
     ],
-    '@babel/typescript'
+    '@babel/typescript',
   ],
   plugins: [
     '@vue/babel-plugin-jsx',
     '@babel/proposal-class-properties',
     '@babel/transform-runtime',
-    'lodash'
+    'lodash',
   ],
   overrides: [
     {
       test: /\.vue$/,
       plugins: [
-        '@babel/transform-typescript'
-      ]
-    }
+        '@babel/transform-typescript',
+      ],
+    },
   ],
   env: {
     utils: {
@@ -33,7 +32,6 @@ module.exports = {
         [
           '@babel/env',
           {
-            loose: true,
             modules: false,
           },
         ],
@@ -50,6 +48,6 @@ module.exports = {
         ],
       ],
     },
-  }
+  },
 }
 

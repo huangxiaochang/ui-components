@@ -111,7 +111,7 @@ export default defineComponent({
 
     // lifecycle
     onMounted(() => {
-      subMenu && subMenu.addSubMenu({
+      subMenu && subMenu.addMenuItem({
         index: props.index,
         indexPath,
         active,
@@ -124,7 +124,7 @@ export default defineComponent({
     })
 
     onBeforeUnmount(() => {
-      subMenu && subMenu.removeSubMenu({
+      subMenu && subMenu.removeMenuItem({
         index: props.index,
         indexPath,
         active,
