@@ -38,7 +38,7 @@ export type IPopperOptions = {
   fallbackPlacements: Array<Placement>
 }
 
-const DEFAULT_TRIGGER = 'hover'
+export const DEFAULT_TRIGGER = 'hover'
 const DEFAULT_FALLBACK_PLACEMENTS = <any>[]
 
 export default {

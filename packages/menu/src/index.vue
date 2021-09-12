@@ -26,7 +26,7 @@ import {
   provide,
 } from 'vue'
 import mitt from 'mitt'
-import { MenuProps, RootMenuProvider, RegisterMenuItem, SubMenuProvider } from './menu-type'
+import { MenuProps, RootMenuProvider, RegisterMenuItem } from './menu-type'
 import Menubar from '@hkust-ui/utils/menu/menu-bar'
 
 export default defineComponent({
@@ -60,10 +60,6 @@ export default defineComponent({
     placement: String,
     showTimeout: Number,
     hideTimeout: Number,
-    collapseTransition: {
-      type: Boolean,
-      default: true,
-    },
   },
   emits: ['close', 'open', 'select'],
   setup(props: MenuProps, ctx) {
@@ -110,15 +106,6 @@ export default defineComponent({
       if (i !== -1) {
         openedMenus.value.splice(i, 1)
       }
-    }
-
-    const open = (index: unknown) => {
-      const { indexPath } = submenus.value[index.toString()]
-      indexPath.forEach((i: string) => openMenu(i, indexPath))
-    }
-
-    const close = (index: unknown) => {
-      closeMenu(index)
     }
 
     const initializeMenu = () => {
@@ -174,18 +161,14 @@ export default defineComponent({
       if (props.router && router && hasIndex) {
         let route = item.route || item.index
         try {
-          router?.push(
-            route,
-            () => null as ReturnNullFn,
-            (error: any) => {
-              activeIndex.value = oldActiveIndex
-              if (error) {
-                // vue-router 3.1.0+ push/replace cause NavigationDuplicated error
-                if (error.name === 'NavigationDuplicated') return
-                console.error(error)
-              }
-            },
-          )
+          router?.push(route, () => null as ReturnNullFn, (error: any) => {
+            activeIndex.value = oldActiveIndex
+            if (error) {
+              // vue-router 3.1.0+ push/replace cause NavigationDuplicated error
+              if (error.name === 'NavigationDuplicated') return
+              console.error(error)
+            }
+          })
         } catch (e) {
           console.error(e)
         }
@@ -229,14 +212,6 @@ export default defineComponent({
       rootMenuOn: rootMenuEmitter.on,
     })
 
-    provide<SubMenuProvider>(`submenu:${instance.uid}`, {
-      addSubMenu: () => null,
-      removeSubMenu: () => null,
-      handleMouseleave: () => null,
-      addMenuItem: () => null,
-      removeMenuItem: () => null,
-    })
-
     // lifecycle
 
     onMounted(() => {
@@ -251,9 +226,6 @@ export default defineComponent({
 
     return {
       props,
-
-      open,
-      close,
     }
   },
 })

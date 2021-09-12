@@ -18,6 +18,8 @@ export default function buildModifier(props: ModifierProps, externalModifiers: S
     fallbackPlacements,
   } = props
 
+  console.log(offset, 'offset')
+
   const modifiers: Array<StrictModifiers> = [
     {
       name: 'offset',

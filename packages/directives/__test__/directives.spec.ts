@@ -1,15 +1,15 @@
 import { mount } from '@vue/test-utils'
-import Menu from '../src/index.vue'
+import Directives from '../src/index.vue'
 
 const AXIOM = 'Rem is the best girl'
 
-describe('Menu.vue', () => {
+describe('Directives.vue', () => {
   test('render test', () => {
-    const wrapper = mount(Menu, {
+    const wrapper = mount(Directives, {
       slots: {
         default: AXIOM,
       },
     })
-    expect(wrapper.text()).toEqual('hello menu component ' + AXIOM)
+    expect(wrapper.text()).toEqual(AXIOM)
   })
 })

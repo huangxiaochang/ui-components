@@ -43,8 +43,8 @@ export default function(
 
   const popperId = `hkust-popper-${generateId()}`
   let popperInstance: Nullable<PopperInstance> = null
-  let showTimer: null | number = null
-  let hideTimer: null | number = null
+  let showTimer: Nullable<TimeoutHandle> = null
+  let hideTimer: Nullable<TimeoutHandle> = null
   let triggerFocused = false
 
   const isManualMode = () => props.manualMode || props.trigger === 'manual'

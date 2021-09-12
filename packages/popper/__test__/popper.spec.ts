@@ -1,15 +1,15 @@
 import { mount } from '@vue/test-utils'
-import Menu from '../src/index.vue'
+import Popper from '../src/index.vue'
 
 const AXIOM = 'Rem is the best girl'
 
-describe('Menu.vue', () => {
+describe('Popper.vue', () => {
   test('render test', () => {
-    const wrapper = mount(Menu, {
+    const wrapper = mount(Popper, {
       slots: {
         default: AXIOM,
       },
     })
-    expect(wrapper.text()).toEqual('hello menu component ' + AXIOM)
+    expect(wrapper.text()).toEqual(AXIOM)
   })
 })

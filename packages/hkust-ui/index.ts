@@ -2,8 +2,6 @@ import type { App } from 'vue'
 import HkustMenu from '@hkust-ui/menu'
 import HkustMenuItem from '@hkust-ui/menu-item'
 import HkustSubmenu from '@hkust-ui/submenu'
-import HkustOverlay from '@hkust-ui/overlay'
-import HkustSearch from '@hkust-ui/search'
 
 import { use, i18n } from '@hkust-ui/locale'
 import type { InstallOptions } from '@hkust-ui/utils/config'
@@ -23,8 +21,6 @@ const components = [
   HkustMenu,
   HkustMenuItem,
   HkustSubmenu,
-  HkustOverlay,
-  HkustSearch,
 ]
 
 const install = (app: App, opt: InstallOptions) => {
@@ -42,8 +38,6 @@ export {
   HkustMenu,
   HkustMenuItem,
   HkustSubmenu,
-  HkustOverlay,
-  HkustSearch,
   version,
   locale,
 }

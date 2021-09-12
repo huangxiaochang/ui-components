@@ -61,6 +61,7 @@ export default defineComponent({
     const state = reactive({
       items: {}, // use for store the child menu-item of this submenu
       submenus: {}, // use for store the child submenu of this submenu
+      opened: false,
       currentPlacement: '',
       mouseInChild: false,
     })
@@ -243,8 +244,6 @@ export default defineComponent({
       addSubMenu,
       removeSubMenu,
       handleMouseleave,
-      addMenuItem,
-      removeMenuItem,
     })
 
     // lifecycle
@@ -287,7 +286,6 @@ export default defineComponent({
       mode,
       rootMenu,
       submenuOffset,
-      rootBackgroundColor: rootMenu.props.backgroundColor,
       submenuBackgroundColor,
       active,
       opened,
@@ -359,7 +357,7 @@ export default defineComponent({
         ]),
         trigger: () => h('div', {
           class: 'hkust-submenu__title',
-          style: [this.paddingStyle, this.titleStyle, { backgroundColor: this.rootBackgroundColor }],
+          style: [this.paddingStyle, this.titleStyle, { backgroundColor: this.submenuBackgroundColor }],
           onClick: this.handleClick,
           onMouseenter: this.handleTitleMouseenter,
           onMouseleave: this.handleTitleMouseleave,
@@ -368,7 +366,7 @@ export default defineComponent({
       : h(Fragment, {}, [
         h('div', {
           class: 'hkust-submenu__title',
-          style: [this.paddingStyle, this.titleStyle, { backgroundColor: this.rootBackgroundColor }],
+          style: [this.paddingStyle, this.titleStyle, { backgroundColor: this.submenuBackgroundColor }],
           ref: 'verticalTitleRef',
           onClick: this.handleClick,
           onMouseenter: this.handleTitleMouseenter,

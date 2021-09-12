@@ -22,7 +22,7 @@ git add .husky/pre-commit
 ```
 
 ## commitizen committing msg
-```yarn cz
+```yarn ca
 or
 npx cz
 or
