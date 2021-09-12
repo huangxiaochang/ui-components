@@ -34,3 +34,4 @@ export const triggerEvent = function(elm: HTMLElement, name: string, ...opts: Ar
   elm.dispatchEvent(evt)
   return elm
 }
+

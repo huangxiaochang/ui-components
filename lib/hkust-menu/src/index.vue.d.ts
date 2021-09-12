@@ -35,8 +35,14 @@ declare const _default: import("vue").DefineComponent<{
     placement: StringConstructor;
     showTimeout: NumberConstructor;
     hideTimeout: NumberConstructor;
+    collapseTransition: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }, {
     props: MenuProps;
+    open: (index: unknown) => void;
+    close: (index: unknown) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("close" | "open" | "select")[], "close" | "open" | "select", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     mode?: unknown;
     defaultActive?: unknown;
@@ -53,6 +59,7 @@ declare const _default: import("vue").DefineComponent<{
     placement?: unknown;
     showTimeout?: unknown;
     hideTimeout?: unknown;
+    collapseTransition?: unknown;
 } & {
     mode: string;
     defaultActive: string;
@@ -61,6 +68,7 @@ declare const _default: import("vue").DefineComponent<{
     uniqueOpened: boolean;
     menuTrigger: string;
     offset: number;
+    collapseTransition: boolean;
 } & {
     defaultOpeneds?: unknown[];
     textColor?: string;
@@ -78,5 +86,6 @@ declare const _default: import("vue").DefineComponent<{
     uniqueOpened: boolean;
     menuTrigger: string;
     offset: number;
+    collapseTransition: boolean;
 }>;
 export default _default;

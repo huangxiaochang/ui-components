@@ -7,12 +7,17 @@ $color-white   : #FFFFFF !default;
 $color-text-secondary: #909399 !default;
 $color-text-primary: #303133 !default;
 $color-primary-light-9: mix($color-white, $color-primary, 90%) !default; /* ecf5ff */
+$color-main: #996600 !default;
 /* 
   font
  */
 $font-size-base: 14px !default;
 $font-path: 'fonts' !default;
 $font-display: 'auto' !default;
+$font-middle: 18px !default;
+$font-large: 20px !default;
+$font-small: 16px !default;
+$font-mini: 14px !default;
 
 /* 
   button
@@ -30,3 +35,13 @@ $menu-item-hover-fill: $color-primary-light-9 !default;
 /* border */
 $border-radius-small: 2px !default;
 $box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+
+
+/* input */
+$input-height: 44px !default;
+$input-padding: 12px 20px !default;
+
+/* search */
+
+$search-input-width: 452px !default;
+$search-btn-width: 178px !default;

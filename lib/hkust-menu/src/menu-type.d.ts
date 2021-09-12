@@ -15,8 +15,9 @@ export interface MenuProps {
     menuTrigger?: string;
     offset?: number;
     placement?: string;
-    showTimeout: number;
-    hideTimeout: number;
+    showTimeout?: number;
+    hideTimeout?: number;
+    collapseTransition?: boolean;
 }
 export interface RegisterMenuItem {
     index: string;
@@ -50,10 +51,9 @@ export interface RootMenuProvider {
     popperAppendToBody?: boolean;
 }
 export interface MenuItemProps {
-    disabled?: boolean;
+    disabled: boolean;
     index: string;
-    route?: string | Record<string, unknown>;
-    popperAppendToBody?: boolean;
+    route: string | Record<string, unknown>;
 }
 export interface SubmenuProps {
     popperAppendToBody?: boolean;
@@ -71,4 +71,6 @@ export interface SubMenuProvider {
     addSubMenu: (item: RegisterMenuItem) => void;
     removeSubMenu: (item: RegisterMenuItem) => void;
     handleMouseleave?: (deepDispatch: boolean) => void;
+    addMenuItem: (item: RegisterMenuItem) => void;
+    removeMenuItem: (item: RegisterMenuItem) => void;
 }

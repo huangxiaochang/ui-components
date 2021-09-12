@@ -2,9 +2,9 @@
 
 @font-face {
   font-family: "hkust-icons"; /* Project id 2708996 */
-  src: url('#{$font-path}/iconfont.woff2?t=1627546680988') format('woff2'),
-       url('#{$font-path}/iconfont.woff?t=1627546680988') format('woff'),
-       url('#{$font-path}/iconfont.ttf?t=1627546680988') format('truetype');
+  src: url('#{$font-path}/iconfont.woff2?t=1628319158941') format('woff2'),
+       url('#{$font-path}/iconfont.woff?t=1628319158941') format('woff'),
+       url('#{$font-path}/iconfont.ttf?t=1628319158941') format('truetype');
   font-weight: normal;
   font-display: $font-display;
   font-style: normal;
@@ -25,6 +25,26 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.#{$namespace}-icon-add:before {
+  content: "\e664";
+}
+
+.#{$namespace}-icon-ashbin:before {
+  content: "\e665";
+}
+
+.#{$namespace}-icon-menu:before {
+  content: "\e677";
+}
+
+.#{$namespace}-icon-search:before {
+  content: "\e67d";
+}
+
+.#{$namespace}-icon-searchclose:before {
+  content: "\e600";
 }
 
 .#{$namespace}-icon-youxiangdizhi:before {
