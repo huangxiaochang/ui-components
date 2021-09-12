@@ -9,7 +9,7 @@ const rename = require('gulp-rename')
 const noHkustPrefixFile = /(index|base|display)/
 
 function compile() {
-  return src('./src/*.scss')
+  return src('./src/*.scss') // 把src下的.scss文件进行独立build, 以支持按需引入时使用
     .pipe(sass.sync())
     .pipe(autoprefixer({ cascade: false }))
     .pipe(cssmin())

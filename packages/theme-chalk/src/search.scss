@@ -1,0 +1,54 @@
+@import './common/var.scss';
+@import './mixins/mixins.scss';
+
+@include b(search) {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  @include e(close-btn) {
+    color: $color-white;
+    font-size: 32px;
+    position: absolute;
+    right: 38px;
+    top: 78px;
+    cursor: pointer;
+  }
+
+  @include e(content) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include e(input) {
+    height: $input-height;
+    padding: $input-padding;
+    box-sizing: border-box;
+    width: $search-input-width;
+    outline: none;
+    border: 1px solid #E1E0E0;
+    vertical-align: middle;
+  }
+
+  @include e(btn) {
+    height: $input-height;
+    line-height: $input-height;
+    background: $color-main;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    text-align: center;
+    width: $search-btn-width;
+    vertical-align: middle;
+    margin-left: 16px;
+    color: $color-white;
+    cursor: pointer;
+    font-size: $font-middle;
+  }
+}
+
+

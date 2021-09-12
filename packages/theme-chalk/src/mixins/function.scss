@@ -1,0 +1,47 @@
+@import "../common/config.scss";
+
+/* BEM support Func
+ -------------------------- */
+@function selectorToString($selector) {
+  $selector: inspect($selector);
+  $selector: str-slice($selector, 2, -2);
+  @return $selector;
+}
+
+// 检查是否包含修饰符$modifier-separator
+@function containsModifier($selector) {
+  $selector: selectorToString($selector);
+
+  @if str-index($selector, $modifier-separator) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function containWhenFlag($selector) {
+  $selector: selectorToString($selector);
+
+  @if str-index($selector, '.' + $state-prefix) {
+    @return true
+  } @else {
+    @return false
+  }
+}
+
+// 是否包含伪类选择
+@function containPseudoClass($selector) {
+  $selector: selectorToString($selector);
+
+  @if str-index($selector, ':') {
+    @return true
+  } @else {
+    @return false
+  }
+}
+
+// 提升特别的嵌套规则：修饰符(--)，is-,伪类(:)
+@function hitAllSpecialNestRule($selector) {
+
+  @return containsModifier($selector) or containWhenFlag($selector) or containPseudoClass($selector);
+}

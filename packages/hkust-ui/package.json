@@ -14,6 +14,10 @@
     "url": "https://gitee.com/x_c_huang/hkust-ui.git/issues"
   },
   "dependencies": {
-    "@hkust-ui/menu": "^0.0.0"
+    "@hkust-ui/menu": "^0.0.0",
+    "@hkust-ui/menu-item": "^0.0.0",
+    "@hkust-ui/submenu": "^0.0.0",
+    "@hkust-ui/overlay": "^0.0.0",
+    "@hkust-ui/search": "^0.0.0"
   }
 }
